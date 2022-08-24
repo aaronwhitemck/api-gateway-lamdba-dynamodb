@@ -4,15 +4,15 @@ Used as boilerplate code to scaffold out a small serverless AWS application usin
 
 ## Installation
 
-1.) You'll need an AWS account and [Terraform](https://www.terraform.io) installed.
-2.) Designed to be used with a domain name with a Hosted Zone in AWS Route 53. If you're using this repo without a domain name, rename the `domain.tf` file to `domain.tf.txt` so it's not included when running the `terraform apply` command.
-3.) Run the `cd api && npm i` to install the NPM `uuid` package required for the API to run. While this repo could replace UUID with `Math.random()` or another randomizer, there is utility demonstrating how to deploy Lamdba functions with NPM packages.
+1.) You'll need an AWS account and [Terraform](https://www.terraform.io) installed.  
+2.) Designed to be used with a domain name with a Hosted Zone in AWS Route 53. If you're using this repo without a domain name, rename the `domain.tf` file to `domain.tf.txt` so it's not included when running the `terraform apply` command.  
+3.) Run the `cd api && npm i` to install the NPM `uuid` package required for the API to run. While this repo could replace UUID with `Math.random()` or another randomizer, there is utility demonstrating how to deploy Lamdba functions with NPM packages.  
 
-## How to import and existing Route 53 Zone
+## How to import and existing Route 53 Zone 
 
-Run `terraform import aws_route53_zone.primary YOUR_ROUTE_53_ZONE_ID` (Replace YOUR_ROUTE_53_ZONE_ID with your Route 53 Hosted Zone ID).
+Run `terraform import aws_route53_zone.primary YOUR_ROUTE_53_ZONE_ID` (Replace YOUR_ROUTE_53_ZONE_ID with your Route 53 Hosted Zone ID). 
 
-Rename the variable `domain` in `variables.tf` to whatever your domain name is, for example: `yourdomainname.com`. The variable `domain` in `variables.tf` creates an S3 bucket for uploading Lamdba function .zip files. S3 buckets are globally unique, so if you encounter an error creating the bucket you may need to edit the `main.tf` file and replace:
+Rename the variable `domain` in `variables.tf` to whatever your domain name is, for example: `yourdomainname.com`. The variable `domain` in `variables.tf` creates an S3 bucket for uploading Lamdba function .zip files. S3 buckets are globally unique, so if you encounter an error creating the bucket you may need to edit the `main.tf` file and replace: 
 
 ```
 resource "aws_s3_bucket" "lambda_bucket" {

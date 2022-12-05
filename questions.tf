@@ -2,7 +2,7 @@ data "archive_file" "lambda_yourapp_questions" {
   type = "zip"
 
   source_dir  = "${path.module}/api"
-  output_path = "${path.module}/zip/questions.zip"
+  output_path = "${path.module}/zip/archive.zip"
 }
 resource "aws_s3_object" "lambda_yourapp_questions" {
   bucket = aws_s3_bucket.lambda_bucket.id

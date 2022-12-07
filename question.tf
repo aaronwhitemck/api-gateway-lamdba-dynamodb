@@ -47,7 +47,7 @@ resource "aws_iam_policy" "question_yourapp_lambda_policy" {
             "Effect": "Allow",
             "Action": [
                 "dynamodb:PutItem",
-                "dynamodb:Scan",
+                "dynamodb:Scan"
             ],
             "Resource": [
                 "${aws_dynamodb_table.questions.arn}"
